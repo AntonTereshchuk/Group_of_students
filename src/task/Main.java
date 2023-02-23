@@ -1,5 +1,7 @@
 package task;
 
+import java.io.File;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -30,29 +32,41 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		System.out.println(group1);
+		//System.out.println(group1);
 				
-		System.out.println(group1.removeStudentByID(3));
-		System.out.println();		
+		//System.out.println(group1.removeStudentByID(3));
+		//System.out.println();		
 		
-		try {
-			System.out.println(group1.searchStudentByLastName("Salami"));
-		} catch (StudentNotFoundException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			System.out.println(group1.searchStudentByLastName("Salami"));
+//		} catch (StudentNotFoundException e) {
+//			e.printStackTrace();
+//		}
 		
-		System.out.println();
+		//System.out.println();
 		
-		System.out.println(group1);
+		//System.out.println(group1);
 								
-		try {
-			group1.addStudent(CreateStudentUsingScanner.createStudent());
-		} catch (GroupOverflowException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			group1.addStudent(CreateStudentUsingScanner.createStudent());
+//		} catch (GroupOverflowException e) {
+//			e.printStackTrace();
+//		}
 		
 		group1.sortStudentsByLastName();
-		System.out.println(group1);
+		//System.out.println(group1);
+		
+		GroupFileStorage.saveGroupToCSV(group1);
+		
+		System.out.println();
+						
+		File fileCsv = new File("First group.csv");
+		Group loadedGroup = GroupFileStorage.loadGroupFromCSV(fileCsv);
+		System.out.println(loadedGroup);
+		
+		File workFolder = new File("D:/Work/JAVA/Java projects/Group_of_students_oop");
+		File foundFile = GroupFileStorage.findFileByGroupName(group1.getGroupName(), workFolder);
+		System.out.println(foundFile);
 					
 	}
 
