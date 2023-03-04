@@ -13,6 +13,7 @@ public class Main {
 		Student student3 = new Student("Inna", "Salami", Gender.women, 3, group1.getGroupName());
 		Student student4 = new Student("Ira", "Superjamon", Gender.women, 4, group1.getGroupName());
 		Student student5 = new Student("Dmitriy", "Prosciutto", Gender.man, 5, group1.getGroupName());
+		Student student6 = new Student("Dmitriy", "Prosciutto", Gender.man, 5, group1.getGroupName());
 		
 		try {
 			group1.addStudent(student1);
@@ -20,6 +21,7 @@ public class Main {
 			group1.addStudent(student3);
 			group1.addStudent(student4);
 			group1.addStudent(student5);
+			group1.addStudent(student6);
 //			If you want overflow exception, you can receive it	
 //			group1.addStudent(student1);
 //			group1.addStudent(student2);
@@ -67,7 +69,10 @@ public class Main {
 		File workFolder = new File("D:/Work/JAVA/Java projects/Group_of_students_oop");
 		File foundFile = GroupFileStorage.findFileByGroupName(group1.getGroupName(), workFolder);
 		System.out.println(foundFile);
-					
+				
+		System.out.println();
+		System.out.println("Founded duplicates of students in " + group1.getGroupName() +": " + group1.chekEqualStudentsInGroup());
+		
 	}
 
 }
